@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <script>
+
+        // NOME E MATRÍCULA DOS INTEGRANTES DO GRUPO
+
+        //DARLEISON DE MOURA RODRIGUES - MATRÍCULA:2424097
+        //EDILSON ANTONIO BESSA BOTTO - MATRÍCULA:2424111
+        //JOÃO GABRIEL SAMPAIO - MATRÍCULA:2424118        
+        //LUIS ARTHUR DA COSTA SILVA - MATRÍCULA:2424100
+        //LUCAS ROBERTO DE ABREU ROGENSKI - MATRÍCULA:2424096
+        //YURI EVANGELISTA DA SILVA - MATRÍCULA:2424133
+       
+        // Quantidade de alunos
+        var n = 5;
+
+        // Notas da primeira avaliação
+        var nota1 = 9.0;
+        var nota2 = 3.5;
+        var nota3 = 10;
+        var nota4 = 4.5;
+        var nota5 = 8.5;
+
+        // Notas da segunda avaliação
+        var nota6 = 6.5;
+        var nota7 = 4.5;
+        var nota8 = 5.5;
+        var nota9 = 9.0;
+        var nota10 = 7.0;
+
+        // ITEM A - Encontrar maiores e menores notas para AV1
+        var maiorAV1 = Number.NEGATIVE_INFINITY;
+        var menorAV1 = Number.POSITIVE_INFINITY;
+
+        if(nota1 > maiorAV1) maiorAV1 = nota1;
+        if(nota2 > maiorAV1) maiorAV1 = nota2;
+        if(nota3 > maiorAV1) maiorAV1 = nota3;
+        if(nota4 > maiorAV1) maiorAV1 = nota4;
+        if(nota5 > maiorAV1) maiorAV1 = nota5;
+
+        if(nota1 < menorAV1) menorAV1 = nota1;
+        if(nota2 < menorAV1) menorAV1 = nota2;
+        if(nota3 < menorAV1) menorAV1 = nota3;
+        if(nota4 < menorAV1) menorAV1 = nota4;
+        if(nota5 < menorAV1) menorAV1 = nota5;
+
+        // Para AV2
+        var maiorAV2 = Number.NEGATIVE_INFINITY;
+        var menorAV2 = Number.POSITIVE_INFINITY;
+
+        if(nota6 > maiorAV2) maiorAV2 = nota6;
+        if(nota7 > maiorAV2) maiorAV2 = nota7;
+        if(nota8 > maiorAV2) maiorAV2 = nota8;
+        if(nota9 > maiorAV2) maiorAV2 = nota9;
+        if(nota10 > maiorAV2) maiorAV2 = nota10;
+
+        if(nota6 < menorAV2) menorAV2 = nota6;
+        if(nota7 < menorAV2) menorAV2 = nota7;
+        if(nota8 < menorAV2) menorAV2 = nota8;
+        if(nota9 < menorAV2) menorAV2 = nota9;
+        if(nota10 < menorAV2) menorAV2 = nota10;
+
+        document.write("<h3>Notas AV1:</h3>");
+        document.write("Maior nota: " + maiorAV1 + "<br>");
+        document.write("Menor nota: " + menorAV1 + "<br>");
+
+        document.write("<h3>Notas AV2:</h3>");
+        document.write("Maior nota: " + maiorAV2 + "<br>");
+        document.write("Menor nota: " + menorAV2 + "<br>");
+
+        // ITEM B - Cálculo das médias
+        var media1 = (nota1 + nota6) / 2;
+        var media2 = (nota2 + nota7) / 2;
+        var media3 = (nota3 + nota8) / 2;
+        var media4 = (nota4 + nota9) / 2;
+        var media5 = (nota5 + nota10) / 2;
+
+        // Organizando as médias em ordem crescente
+        var medias = [media1, media2, media3, media4, media5];
+        
+        // Ordenação das médias (ordem crescente)
+        for(var i = 0; i < n - 1; i++) {
+            for(var j = 0; j < n - 1 - i; j++) {
+                if(medias[j] > medias[j + 1]) {
+                    var temp = medias[j];
+                    medias[j] = medias[j + 1];
+                    medias[j + 1] = temp;
+                }
+            }
+        }
+
+        // Exibindo médias em ordem crescente
+        document.write("<h3>Médias em ordem crescente:</h3>");
+        for(var i = 0; i < n; i++) {
+            document.write(medias[i] + "<br>");
+        }
+
+        // ITEM C - Encontrar maior e menor média
+        var maiorMedia = Number.NEGATIVE_INFINITY;
+        var menorMedia = Number.POSITIVE_INFINITY;
+
+        if(media1 > maiorMedia) maiorMedia = media1;
+        if(media2 > maiorMedia) maiorMedia = media2;
+        if(media3 > maiorMedia) maiorMedia = media3;
+        if(media4 > maiorMedia) maiorMedia = media4;
+        if(media5 > maiorMedia) maiorMedia = media5;
+
+        if(media1 < menorMedia) menorMedia = media1;
+        if(media2 < menorMedia) menorMedia = media2;
+        if(media3 < menorMedia) menorMedia = media3;
+        if(media4 < menorMedia) menorMedia = media4;
+        if(media5 < menorMedia) menorMedia = media5;
+
+        // ITEM D - Contagem de aprovados e recuperação
+        var cnt = 0;
+        if(media1 >= 5.0) cnt = cnt + 1;
+        if(media2 >= 5.0) cnt = cnt + 1;
+        if(media3 >= 5.0) cnt = cnt + 1;
+        if(media4 >= 5.0) cnt = cnt + 1;
+        if(media5 >= 5.0) cnt = cnt + 1;
+
+        document.write("<h3>Maior e Menor Médias:</h3>");
+        document.write("Maior média: " + maiorMedia + "<br>");
+        document.write("Menor média: " + menorMedia + "<br>");
+
+        document.write("<h3>Status da Turma:</h3>");
+        document.write("Número de aprovações: " + cnt + "<br>");
+        document.write("Número de recuperações: " + (n - cnt) + "<br>");
+
+        // Mostrar médias em recuperação
+        document.write("<h3>Médias em recuperação:</h3>");
+        if(media1 < 5.0) document.write(media1 + "<br>");
+        if(media2 < 5.0) document.write(media2 + "<br>");
+        if(media3 < 5.0) document.write(media3 + "<br>");
+        if(media4 < 5.0) document.write(media4 + "<br>");
+        if(media5 < 5.0) document.write(media5 + "<br>");
+    </script>
+</body>
+</html>
